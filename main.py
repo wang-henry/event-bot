@@ -4,11 +4,6 @@ import datetime
 import json
 import os
 
-f = open("token.txt", "r")
-TOKEN = f.readline()
-
-client = discord.Client()
-
 
 # Startup messages
 @client.event
@@ -188,4 +183,8 @@ async def delete_event(message, events, server_id, date_lst):
 
 
 if __name__ == '__main__':
+    with open("token.txt", "r") as f:
+        TOKEN = f.readline()
+
+    client = discord.Client()
     client.run(TOKEN)
